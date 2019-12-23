@@ -64,11 +64,4 @@ public class GetKeyValFromConsulService {
                 .build();
         return configData ;
     }
-
-
-
-
-
-
-
 }
