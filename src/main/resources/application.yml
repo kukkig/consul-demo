@@ -1,0 +1,5 @@
+consulservice:
+  version: v1.0
+  directory:
+    cardlessList:
+      cardless: ${cardless.${consulservice.version}}
