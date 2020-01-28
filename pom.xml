@@ -65,6 +65,8 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<packaging>war</packaging>
+
 	<build>
 		<plugins>
 			<plugin>
