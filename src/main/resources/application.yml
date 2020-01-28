@@ -7,3 +7,6 @@
 #    preloadResponse: ${preload.response.${consulservice.directory.version}}
 #    cardlessList:
 #      cardless: ${cardless.${consulservice.directory.version}
+
+consul:
+  paymentsValue: ${payments_limits_per_tx_ekyc}
