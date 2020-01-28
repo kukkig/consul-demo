@@ -4,10 +4,11 @@ import com.example.poc.demo.model.cardless.CardlessKeyModel;
 import com.example.poc.demo.model.ConfigData;
 import com.example.poc.demo.model.ConfigDataModel;
 import com.example.poc.demo.model.cardless.Limits;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -22,7 +23,7 @@ public class GetKeyValFromConsulService {
         this.cardlessList = cardlessList;
     }
 
-    public ConfigData testService() throws JsonProcessingException, IllegalAccessException {
+    public ConfigData testService() throws IOException, IllegalAccessException {
         String res = cardlessList.get(CARDLESS_KEY);
         log.info("Raw data from Consul: [{}]", res);
 
@@ -33,13 +34,13 @@ public class GetKeyValFromConsulService {
         Field[] cardlessKeyFields = cardlessKeyModel.getClass().getDeclaredFields();
         Field[] limitsKeyFields = cardlessKeyModel.getLimits().getClass().getDeclaredFields();
 
-        ConfigData configData = mapDataValue(cardlessKeyFields, cardlessKeyModel, limitsKeyFields);
+        ConfigData configData = mapDataValue(cardlessKeyFields, limitsKeyFields, cardlessKeyModel);
         log.info("ConfigData: [{}]", configData);
 
         return configData;
     }
 
-    private ConfigData mapDataValue(Field[] cardlessKeyFields, CardlessKeyModel cardlessKeyModel, Field[] limitsKeyFields) throws IllegalAccessException {
+    private ConfigData mapDataValue(Field[] cardlessKeyFields, Field[] limitsKeyFields, CardlessKeyModel cardlessKeyModel) throws IllegalAccessException {
         List<ConfigDataModel> configDataModels = new ArrayList<ConfigDataModel>();
 
         for (Field cardlessKey : cardlessKeyFields) {
