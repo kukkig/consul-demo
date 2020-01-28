@@ -34,6 +34,6 @@ public class TestConsulKvController {
 
     @GetMapping("/test4")
     public String testFour() {
-        return cachingConsulKVService.testJenkins();
+        return System.getProperty("payments_limits_per_tx_ekyc");
     }
 }

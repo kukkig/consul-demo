@@ -14,8 +14,8 @@ import java.util.Optional;
 @Service
 public class CachingConsulKVService {
 
-    @Value("${consul.paymentsValue}")
-    private String paymentsValue;
+//    @Value("${consul.paymentsValue}")
+//    private String paymentsValue;
 
     public CachingConsulKVService() { }
 
@@ -39,9 +39,9 @@ public class CachingConsulKVService {
 //        cache.start();
     }
 
-    public String testJenkins() {
-        return paymentsValue;
-    }
+//    public String testJenkins() {
+//        return paymentsValue;
+//    }
 
 
 //    // Cache notifies all paths with "config" as the root path

@@ -6,6 +6,4 @@
 #      getUri: ${consulservice.directory.clientUri.baseUri}/v1/kv/config/common/{key}
 #    preloadResponse: ${preload.response.${consulservice.directory.version}}
 #    cardlessList:
-#      cardless: ${cardless.${consulservice.directory.version}}
-consul:
-  paymentsValue: ${payments_limits_per_tx_ekyc}
+#      cardless: ${cardless.${consulservice.directory.version}
